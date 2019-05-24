@@ -39,5 +39,5 @@ for row in data:
 res_wb.save(outDir)
 print ('Script completed')
 
-print('Changes')
+print('Changes бля')
 
