@@ -93,6 +93,7 @@ def createSheet(wb, sheet_name, df):
 
 def createReport (file_out, file_in):
     num = file_out[:3]
+    report_date = datetime.strptime(file_out[8:17], '%Y-%m-%d')
 
     df_out = clearAndSortTable(file_out)
     df_in = clearAndSortTable(file_in)
@@ -123,7 +124,7 @@ def createReport (file_out, file_in):
     res_df_6B['1'] = df_in['Trunk Group (ID)']
     res_df_6B['2'] = df_in['Trunk Group (Name)']
     res_df_6B['3'] = df_in['by Hour']
-    res_df_6A['4'] = df_in['Traffic Volume - PeakHour'] # + df_in['Traffic Volume - PeakHour']
+    res_df_6B['4'] = df_in['Traffic Volume - PeakHour'] # + df_in['Traffic Volume - PeakHour']
     res_df_6B['5'] = df_in['PeakHour Number Of Seizures']
     res_df_6B['6'] = df_in['All Channels']
     res_df_6B['7'] = df_in['Active Channels']
@@ -133,7 +134,7 @@ def createReport (file_out, file_in):
     res_df_6B['11'] = df_in['PeakHour Average Seizure Length']
      
     wb = oxl.Workbook()
-    report_date = datetime.now()
+    # report_date = datetime.now()
 
     createSheet(wb, 'Форма 6А', res_df_6A)
     createSheet(wb, 'Форма 6B', res_df_6B)
